@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Books</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Load JSON file
+            $.getJSON("books.json", function (data) {
+                const books = data.books;
+                
+                // (a) Display title of the first book
+                console.log("Title of the first book:", books[0].title);
+
+                // (b) Display author of the second book
+                console.log("Author of the second book:", books[1].author);
+
+                // (c) Display genres of all books
+                const allGenres = books.map(book => book.genres).flat();
+                console.log("Genres of all books:", allGenres.join(", "));
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Open the Console to View the Results</h1>
+</body>
+</html>
